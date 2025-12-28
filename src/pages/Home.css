@@ -1,0 +1,381 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ================= NAV 1 ================= */
+.nav-container {
+  height: 50px;
+  background-color: #9c29b2;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.time-box {
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 5px;
+}
+
+.contact {
+  display: flex;
+}
+
+.con1:hover {
+  color: aqua;
+  cursor: pointer;
+}
+
+.social-icon {
+  display: flex;
+  gap: 10px;
+}
+
+.social-color {
+  color: white;
+}
+
+.social-color:hover{
+    color: #29b292;
+}
+
+/* ================= NAV 2 ================= */
+.contain-box {
+  height: 100px;
+  background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.title-name {
+  color: #29b292;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* ================= MENU ================= */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.li-color {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  display: block;
+}
+
+.li-color:hover{
+    background-color: #9c29b2;
+    color: white;
+}
+
+/* ================= DROPDOWN (UNCHANGED) ================= */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 160px;
+  display: none;
+  list-style: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ================= BANNER ================= */
+.home-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ================= HAMBURGER ================= */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ================= ABOUT ================= */
+.container {
+  width: 100%;
+  background-color: #f9f6ef;
+}
+
+.contain {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+  gap: 40px;
+}
+
+.left-contain {
+  flex: 1;
+}
+
+.right-contain {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.img-size {
+  max-width: 100%;
+  height: auto;
+}
+
+.about-title {
+  color: #9c29b2;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.special {
+  color: #103741;
+}
+
+.about-text {
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.learn-contain {
+  text-decoration: none;
+  border: 1px solid #9c29b2;
+  padding: 15px 30px;
+  margin-left: 20px;
+  border-radius: 40px;
+  display: inline-block;
+  color: #9c29b2;
+}
+
+.learn-contain:hover {
+  color: white;
+  background-color: #103741;
+  border: none;
+}
+
+/* ================= CLASSES ================= */
+.class-contain {
+  background-color: #ffffff;
+}
+
+.sub-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #9c29b2;
+  display: flex;
+  justify-content: center;
+  padding-top: 130px;
+  margin-bottom: 29px;
+}
+
+.sec-title {
+  display: flex;
+  justify-content: center;
+  font-size: 48px;
+  line-height: 1.2;
+  color: #103741;
+  font-weight: bold;
+}
+
+.img-container {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* ===== CARD ===== */
+.sub-card {
+  width: 320px;
+  background: #fff2fb;
+  border-radius: 40px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.img-container-size {
+  width: 100%;
+  height: 200px;
+  border-radius: 35px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.img-size1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.head {
+  font-size: 24px;
+  font-weight: 700;
+  color: #9c29b2;
+  margin-bottom: 20px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.info1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.info1 p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.list {
+  font-size: 15px;
+  font-weight: 600;
+  color: #9c29b2;
+}
+
+.info1:not(:last-child) {
+  border-right: 1px solid #e5c6ef;
+  padding-right: 15px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+  .menu-icon {
+    display: block;
+  }
+
+  .title-list {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 250px;
+    height: 100vh;
+    background-color: beige;
+    padding-top: 100px;
+    transition: 0.3s ease;
+    z-index: 1000;
+  }
+
+  .title-list.active {
+    left: 0;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* dropdown css SAME – only position change */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+  }
+
+  .contain {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .img-container {
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+
+  .nav-container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .contact {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .sec-title {
+    font-size: 28px;
+  }
+
+  .sub-card {
+    width: 100%;
+  }
+}
+
+
+.read{
+    display: inline;
+    color:#9c29b2;
+    border: 1px solid #9c29b2;
+    padding: 8px 20px;
+    border-radius: 40px;
+}
+
+.read:hover{
+    color: white;
+    background-color: #9c29b2;
+    cursor: pointer;
+}
+
+.service-contain{
+    margin-top: 50px;
+    background-color: #f9f6ef;
+    width: 100%;
+}
+
+.service-title{
+  font-size: 24px;
+  font-weight: 500;
+  color: #9c29b2;
+  display: flex;
+  justify-content: center;
+  padding-top: 130px;
+  margin-bottom: 29px;
+}
+
+.ser-title{
+  display: flex;
+  justify-content: center;
+  font-size: 48px;
+  line-height: 1.2;
+  color: #103741;
+  font-weight: bold;
+}
