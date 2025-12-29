@@ -9,13 +9,15 @@ import transport from './img/transport.png'
 import learn from './img/learn.png'
 import music from './img/music.png'
 import teacher from './img/teacher.png'
+import Footer from '../component/Footer';
+import Header from '../component/Header';
 
 
 
 
 function Home() {
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  
 
   
 
@@ -54,59 +56,7 @@ function Home() {
         </nav>
 
         {/* ===================== NAV 2 ===================== */}
-        <nav className='contain-box'>
-          <div className='title'>
-            <span className='title-name'>Vinoth</span>
-          </div>
-
-          {/* ☰ Menu Icon */}
-          <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
-            <i className="fa-solid fa-bars"></i>
-          </div>
-
-          {/* MENU */}
-          <div className={`title-list ${menuOpen ? "active" : ""}`}>
-            <ul className="nav-menu">
-
-              <li><a href="#" className="li-color">Home</a></li>
-              <li><a href="#" className="li-color">About Us</a></li>
-
-              <li className="dropdown">
-                <a href="#" className="li-color">Classes ▾</a>
-                <ul className="dropdown-menu">
-                  <li><a href="#" className="li-color">Play Group</a></li>
-                  <li><a href="#" className="li-color">Nursery</a></li>
-                  <li><a href="#" className="li-color">Junior KG</a></li>
-                  <li><a href="#" className="li-color">Senior KG</a></li>
-                </ul>
-              </li>
-
-              <li><a href="#" className="li-color">Facilities</a></li>
-              <li><a href="#" className="li-color">Admissions</a></li>
-
-              <li className="dropdown">
-                <a href="#" className="li-color">Gallery ▾</a>
-                <ul className="dropdown-menu">
-                  <li><a href="#" className="li-color">Photos</a></li>
-                  <li><a href="#" className="li-color">Videos</a></li>
-                </ul>
-              </li>
-
-              <li><a href="#" className="li-color">Curriculum</a></li>
-
-              {/* ✅ LOGIN MENU */}
-              <li className="dropdown">
-                <a href="#" className="li-color">Login ▾</a>
-                <ul className="dropdown-menu">
-                  <li><a href="#" className="li-color">Admin</a></li>
-                  <li><a href="#" className="li-color">Staff</a></li>
-                  <li><a href="#" className="li-color">Student</a></li>
-                </ul>
-              </li>
-
-            </ul>
-          </div>
-        </nav>
+        <Header />
 
         {/* ===================== BANNER ===================== */}
         <div className="home">
@@ -163,6 +113,8 @@ function Home() {
             <div>
             <h2 className='sec-title'>Take The Classes & Start </h2> <h2 className='sec-title'><span className='sec'>Learning From Today</span> </h2>
             </div>
+
+
             <div className='img-container'>
             <div className='img-contain'>
                 <div className='card sub-card '>
@@ -328,7 +280,7 @@ function Home() {
 
       </div>
 
-      <div className='service-contain'>
+      <div className='ser-contain'>
             <div>
             <span className='service-title'>Service We Provide</span>
             </div>
@@ -337,56 +289,157 @@ function Home() {
             </div>
             <div className='service-container'>
             <div className='service-contain'>
-                <div className='card '>
+                <div className='card ser-card'>
                 <div className='service-container-size'>
-                <img src={transport} alt="play" class="img-size2" />
+                <a href='#'><img src={transport} alt="play" class="img-size2" /></a>
                 </div>
                 <div>
-                    <p className='head'>Play-Ground</p>
-                </div>
-               
-                </div>
-            </div>
-{/* 
-            <div className='img-contain'>
-                <div className='card'>
-                <div className='img-container-size'>
-                <img src={learn} alt="nursery" class="img-size1" />
-                </div>
-                <div>
-                    <p className='head'>Nursery</p>
+                    <p className='service-list'>Transport</p>
                 </div>
                
                 </div>
             </div>
 
-            <div className='img-contain'>
-                <div className='card'>
-                <div className='img-container-size'>
-                <img src={music} alt="junior" class="img-size1" />
+            <div className='service-contain1'>
+                <div className='card ser-card'>
+                <div className='service-container-size'>
+                <a href='#'><img src={learn} alt="learn" class="img-size2" /></a>
                 </div>
                 <div>
-                    <p className='head'>Junior</p>
+                    <p className='service-list'>Learn & Play</p>
                 </div>
                
                 </div>
-                
             </div>
 
-            <div className='img-contain'>
-                <div className='card'>
-                <div className='img-container-size'>
-                <img src={teacher} alt="senior" class="img-size1" />
+            <div className='service-contain2'>
+                <div className='card ser-card'>
+                <div className='service-container-size'>
+                <a href='#'><img src={music} alt="music" class="img-size2" /></a>
                 </div>
                 <div>
-                    <p className='head'>Senoir</p>
+                    <p className='service-list'>Music</p>
                 </div>
                
                 </div>
-            </div> */}
+            </div>
+
+           <div className='service-contain3'>
+                <div className='card ser-card'>
+                <div className='service-container-size'>
+                <a href='#'><img src={teacher} alt="teacher" class="img-size2" /></a>
+                </div>
+                <div>
+                    <p className='service-list'>Teacher</p>
+                </div>
+               
+                </div>
+            </div>
+        </div>
+        <div className='learn-container'>
+        <a href='#' className='learn'><span className='learn-More'>Learn More</span></a>
+        </div>
+      </div>
+
+      {/* ===================== our flyer ========================== */}
+
+      {/* ===================== our gallery ======================== */}
+
+      <div className='gal-container'>
+        <div className='our-gal'>
+          <p className='txt-gal'>Our Gallery</p>
+        </div>
+        <div className='gal-contain'>
+        <div className='card'>
+          <div className='img-gal'>
+            <img src='https://www.kridashala.com/assets/img/gallery/photos/7.jpeg' alt='gal1' className='img-siz' />
+          </div>
+        </div>
+
+        <div className='card'>
+          <div className='img-gal'>
+            <img src='https://www.kridashala.com/assets/img/gallery/photos/3.jpeg' alt='gal1' className='img-siz' />
+          </div>
+        </div>
+
+         <div className='card'>
+          <div className='img-gal'>
+            <img src='https://www.kridashala.com/assets/img/gallery/photos/5.jpeg' alt='gal1' className='img-siz' />
+          </div>
+        </div>
+
+         <div className='card'>
+          <div className='img-gal'>
+            <img src='https://www.kridashala.com/assets/img/gallery/photos/9.jpeg' alt='gal1' className='img-siz' />
+          </div>
         </div>
 
       </div>
+
+
+        <div className='view-container'>
+        <a href='#' className='view'><span className='view-more'>View More</span></a>
+        </div>
+      </div>
+
+      {/* ======================== parent details ========================= */}
+
+      <div className="test-container">
+      {/* LEFT CONTENT */}
+      <div className="test-left">
+        <span className="test-sub">Parent Testimonial</span>
+        <h2 className="test-title">
+          Parents Review <br /> <span>Of Us</span>
+        </h2>
+        <p className="test-desc">
+          Parents have given their reviews based on their child activities
+          and satisfied service towards us.
+        </p>
+      </div>
+
+      {/* RIGHT CARDS */}
+      <div className="test-right">
+        <div className="test-card">
+          <div className="avatar">
+            <span className="quote">“</span>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+              alt="parent"
+            />
+          </div>
+
+          <p className="review">
+            It’s really very good school. Teachers are very well trained to
+            create a comfort zone to kids. There is a very good progress in
+            my kid after joining this school.
+          </p>
+
+          <h4>Rahmathulla Sheik</h4>
+          <span className="role">Parent</span>
+        </div>
+
+        <div className="test-card">
+          <div className="avatar">
+            <span className="quote">“</span>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+              alt="parent"
+            />
+          </div>
+
+          <p className="review">
+            It’s a very good school for the kids who want to have fun in
+            learning. All the teachers and staffs are kind and focus on
+            every kid individually.
+          </p>
+
+          <h4>Amrutha Vikky</h4>
+          <span className="role">Parent</span>
+        </div>
+      </div>
+    </div>
+
+    <Footer/>
 
       </div>
     </>
