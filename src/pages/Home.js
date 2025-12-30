@@ -9,8 +9,8 @@ import transport from './img/transport.png'
 import learn from './img/learn.png'
 import music from './img/music.png'
 import teacher from './img/teacher.png'
-import Footer from '../component/Footer';
-import Header from '../component/Header';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 
 
@@ -281,11 +281,13 @@ function Home() {
       </div>
 
       <div className='ser-contain'>
+        <div></div>
             <div>
             <span className='service-title'>Service We Provide</span>
             </div>
             <div>
-            <h2 className='ser-title'>Providing Good Qualities </h2> <h2 className='ser-title'><span className='sec'>For Your Loving Kids</span> </h2>
+            <h2 className='ser-title'><span className='sec'>Providing Good Qualities </span></h2> 
+            <h2 className='ser-title'><span className='sec'>For Your Loving Kids</span> </h2>
             </div>
             <div className='service-container'>
             <div className='service-contain'>

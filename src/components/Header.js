@@ -1,4 +1,5 @@
 import React, {useState } from 'react'
+import { Link } from "react-router-dom";
 import './Header.css'
 
 function Header() {
@@ -53,6 +54,17 @@ function Header() {
                   <li><a href="#" className="li-color">Admin</a></li>
                   <li><a href="#" className="li-color">Staff</a></li>
                   <li><a href="#" className="li-color">Student</a></li>
+
+                  {/* <li>
+                    <Link to="/admin-login" className="li-color">Admin</Link>
+                  </li>
+                  <li>
+                    <Link to="/staff-login" className="li-color">Staff</Link>
+                  </li>
+                  <li>
+                    <Link to="/student-login" className="li-color">Student</Link>
+                  </li> */}
+                
                 </ul>
               </li>
 
