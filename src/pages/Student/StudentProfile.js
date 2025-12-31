@@ -44,9 +44,9 @@ export default function StudentProfile() {
         <p><b>Mother Name:</b> {student.motherName}</p>
       </div>
 
-      <p className="note">
+      {/* <p className="note">
         * This page is view only. Editing is not allowed.
-      </p>
+      </p> */}
     </div>
   );
 }

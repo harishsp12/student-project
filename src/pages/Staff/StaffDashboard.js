@@ -1,39 +1,19 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import "../../styles/dashboard.css";
 
-export default function StaffDashboard() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  // login-la pass pannina staffId
-  const staffId = location.state?.staffId;
+export default function StaffDashboard(){
+  const nav = useNavigate();
+  const { staffId } = useLocation().state;
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard">
       <h2>Staff Dashboard</h2>
-      <p>Welcome Staff ID: {staffId}</p>
-
-      <div className="box-container">
-        <div
-          className="dash-box"
-          onClick={() =>
-            navigate("/staff/student-management", {
-              state: { staffId }
-            })
-          }
-        >
-          <h3>Student Management</h3>
+      <div className="box-wrap">
+        <div className="box" onClick={()=>nav("/staff/students",{state:{staffId}})}>
+          Student Management
         </div>
-
-        <div
-          className="dash-box"
-          onClick={() =>
-            navigate("/staff/profile", {
-              state: { staffId }
-            })
-          }
-        >
-          <h3>Staff Profile</h3>
+        <div className="box" onClick={()=>nav("/staff/profile",{state:{staffId}})}>
+          Staff Profile
         </div>
       </div>
     </div>

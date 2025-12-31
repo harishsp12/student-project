@@ -51,11 +51,11 @@ function Header() {
               <li className="dropdown">
                 <a href="#" className="li-color">Login ▾</a>
                 <ul className="dropdown-menu">
-                  <li><a href="#" className="li-color">Admin</a></li>
+                  {/* <li><a href="/admin-login" className="li-color">Admin</a></li>
                   <li><a href="#" className="li-color">Staff</a></li>
-                  <li><a href="#" className="li-color">Student</a></li>
+                  <li><a href="#" className="li-color">Student</a></li> */}
 
-                  {/* <li>
+                  <li>
                     <Link to="/admin-login" className="li-color">Admin</Link>
                   </li>
                   <li>
@@ -63,7 +63,7 @@ function Header() {
                   </li>
                   <li>
                     <Link to="/student-login" className="li-color">Student</Link>
-                  </li> */}
+                  </li>
                 
                 </ul>
               </li>

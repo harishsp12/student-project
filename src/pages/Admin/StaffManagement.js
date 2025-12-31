@@ -4,49 +4,79 @@ import StaffForm from "../../components/StaffForm";
 import StaffTable from "../../components/StaffTable";
 import toast from "react-hot-toast";
 
+
 export default function StaffManagement() {
   const [staffs, setStaffs] = useState([]);
   const [editStaff, setEditStaff] = useState(null);
 
-  const loadStaff = async () => {
-    const res = await api.get("/staff/all");
-    setStaffs(res.data);
-  };
-
+  // ✅ SAFE useEffect
   useEffect(() => {
+    const loadStaff = async () => {
+      try {
+        const res = await api.get("/staff/all");
+        setStaffs(res.data);
+      } catch {
+        toast.error("Failed to load staff");
+      }
+    };
+
     loadStaff();
+
+    return () => {
+      // cleanup function (required format)
+    };
   }, []);
 
   const handleSubmit = async (staff) => {
-    if (editStaff) {
-      await api.put(`/staff/update/${editStaff.id}`, staff);
-      toast.success("Staff updated");
-      setEditStaff(null);
-    } else {
-      await api.post("/staff/save", staff);
-      toast.success("Staff created");
+    try {
+      if (editStaff) {
+        await api.put(`/staff/update/${editStaff.id}`, staff);
+        toast.success("Staff updated");
+        setEditStaff(null);
+      } else {
+        await api.post("/staff/save", staff);
+        toast.success("Staff created");
+      }
+
+      const res = await api.get("/staff/all");
+      setStaffs(res.data);
+    } catch {
+      toast.error("Save failed");
     }
-    loadStaff();
   };
 
-  const handleEdit = (staff) => setEditStaff(staff);
+  const handleEdit = (staff) => {
+    setEditStaff(staff);
+  };
 
   const handleDelete = async (id) => {
-    await api.delete(`/staff/delete/${id}`);
-    toast.success("Staff deleted");
-    loadStaff();
+    try {
+      await api.delete(`/staff/delete/${id}`);
+      toast.success("Staff deleted");
+
+      const res = await api.get("/staff/all");
+      setStaffs(res.data);
+    } catch {
+      toast.error("Delete failed");
+    }
   };
 
   return (
     <div>
-      <h2>Staff Management</h2>
+      <h2 style={{ textAlign: "center" }}>
+  Staff Management
+</h2>
 
-      <StaffForm onSubmit={handleSubmit} editData={editStaff} />
+
+      <StaffForm
+        onSubmit={handleSubmit}
+        editData={editStaff}
+      />
 
       <StaffTable
         staffs={staffs}
         onEdit={handleEdit}
-        onDelete={handleDelete}
+        onDelete={handleDelete} 
       />
     </div>
   );

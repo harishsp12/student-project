@@ -1,10 +1,13 @@
 import "../styles/table.css";
 
-export default function StudentTable({
-  students,
-  onEdit,
-  onDelete
-}) {
+export default function StudentTable({ students, onEdit, onDelete }) {
+
+  const confirmDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this student?")) {
+      onDelete(id);
+    }
+  };
+
   return (
     <div className="table-wrapper">
       <h3>Student Table</h3>
@@ -58,7 +61,7 @@ export default function StudentTable({
                   </button>
                   <button
                     className="btn-delete"
-                    onClick={() => onDelete(s.id)}
+                    onClick={() => confirmDelete(s.id)}
                   >
                     Delete
                   </button>

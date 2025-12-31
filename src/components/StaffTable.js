@@ -1,10 +1,13 @@
 import "../styles/table.css";
 
-export default function StaffTable({
-  staffs,
-  onEdit,
-  onDelete
-}) {
+export default function StaffTable({ staffs, onEdit, onDelete }) {
+
+  const confirmDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this staff?")) {
+      onDelete(id);
+    }
+  };
+
   return (
     <div className="table-wrapper">
       <h3>Staff Table</h3>
@@ -56,7 +59,7 @@ export default function StaffTable({
                   </button>
                   <button
                     className="btn-delete"
-                    onClick={() => onDelete(s.id)}
+                    onClick={() => confirmDelete(s.id)}
                   >
                     Delete
                   </button>

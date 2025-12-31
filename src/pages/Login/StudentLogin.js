@@ -1,27 +1,38 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import api from "../../api/api";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import "../../styles/login.css";
 
 export default function StudentLogin() {
-  const [studentId, setStudentId] = useState("");
+
+  const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (!studentId || !password) {
-      toast.error("Please fill all fields");
+  const handleLogin = async () => {
+
+    // basic validation
+    if (!id || !password) {
+      toast.error("Please enter ID and Password");
       return;
     }
 
-    // backend connect panna place
-    // axios.post("/student/login", { id: studentId, password })
+    try {
+      const res = await api.post("/student/login", {
+        id: id,
+        password: password
+      });
 
-    if (password.length >= 4) {
-      toast.success("Student login success");
-      navigate("/student-profile", { state: { studentId } });
-    } else {
-      toast.error("Invalid login");
+      toast.success("Student Login Success");
+
+      // student profile page
+      navigate("/student-profile", {
+        state: { studentId: res.data.id }
+      });
+
+    } catch (error) {
+      toast.error("Invalid Student ID or Password");
     }
   };
 
@@ -30,20 +41,22 @@ export default function StudentLogin() {
       <h2>Student Login</h2>
 
       <input
-        type="text"
-        placeholder="Student ID"
-        value={studentId}
-        onChange={(e) => setStudentId(e.target.value)}
+        type="number"
+        placeholder="Enter Student ID"
+        value={id}
+        onChange={(e) => setId(e.target.value)}
       />
 
       <input
         type="password"
-        placeholder="Password (DOB)"
+        placeholder="Enter Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogin}>
+        Login
+      </button>
     </div>
   );
 }
