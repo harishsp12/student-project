@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { dobToPassword } from "../utils/validation";
+import toast from "react-hot-toast";
+import {
+  capitalizeFirst,
+  validateEmail,
+  validatePhone,
+  validateAadhar,
+  validateEmptyFields,
+  dobToPassword
+} from "../utils/validation";
 import "../styles/form.css";
 
 const initialStaff = {
@@ -31,13 +39,46 @@ export default function StaffForm({ onSubmit, editData }) {
         dob: value,
         password: dobToPassword(value)
       });
-    } else {
-      setStaff({ ...staff, [name]: value });
+      return;
     }
+
+    if (name === "email") {
+      setStaff({ ...staff, email: value.toLowerCase() });
+      return;
+    }
+
+    if (name === "phoneNo" || name === "aadharNo" || name === "salary") {
+      setStaff({ ...staff, [name]: value });
+      return;
+    }
+
+    setStaff({ ...staff, [name]: capitalizeFirst(value) });
   };
 
   const handleSubmit = () => {
+    const empty = validateEmptyFields(staff);
+    if (empty) {
+      toast.error("Please fill this field");
+      return;
+    }
+
+    if (!validateEmail(staff.email)) {
+      toast.error("Email must be @gmail.com");
+      return;
+    }
+
+    if (!validatePhone(staff.phoneNo)) {
+      toast.error("Phone number must be 10 digits");
+      return;
+    }
+
+    if (!validateAadhar(staff.aadharNo)) {
+      toast.error("Aadhar number must be 12 digits");
+      return;
+    }
+
     onSubmit(staff);
+    toast.success(editData ? "Staff updated" : "Staff created");
     setStaff(initialStaff);
   };
 
@@ -45,16 +86,15 @@ export default function StaffForm({ onSubmit, editData }) {
     <div className="form-container">
       <h3>{editData ? "Update Staff" : "Create Staff"}</h3>
 
-      <input name="staffName" placeholder="Enter staff name"
+      <input name="staffName" placeholder="Staff Name"
         value={staff.staffName} onChange={handleChange} />
 
       <input type="date" name="dob"
         value={staff.dob} onChange={handleChange} />
 
       <input value={staff.password}
-        placeholder="Password (auto from DOB)" readOnly />
+        placeholder="Password (DOB)" readOnly />
 
-      {/* Gender */}
       <div className="radio-group">
         <label>
           <input type="radio" name="gender" value="Male"
@@ -66,27 +106,28 @@ export default function StaffForm({ onSubmit, editData }) {
         </label>
       </div>
 
-      <select name="staffClass" value={staff.staffClass} onChange={handleChange}>
-        <option value="">Select class</option>
+      <select name="staffClass"
+        value={staff.staffClass} onChange={handleChange}>
+        <option value="">Select Class</option>
         <option>Play Ground</option>
         <option>Nursery</option>
         <option>Junior KG</option>
         <option>Senior KG</option>
       </select>
 
-      <input name="email" placeholder="Enter Gmail ID"
+      <input name="email" placeholder="Gmail ID"
         value={staff.email} onChange={handleChange} />
 
-      <input name="phoneNo" placeholder="Enter 10 digit phone number"
+      <input name="phoneNo" placeholder="10 digit Phone"
         value={staff.phoneNo} onChange={handleChange} />
 
-      <input name="address" placeholder="Enter address"
+      <input name="address" placeholder="Address"
         value={staff.address} onChange={handleChange} />
 
-      <input name="aadharNo" placeholder="Enter 12 digit Aadhar number"
+      <input name="aadharNo" placeholder="12 digit Aadhar"
         value={staff.aadharNo} onChange={handleChange} />
 
-      <input name="salary" placeholder="Enter salary"
+      <input name="salary" placeholder="Salary"
         value={staff.salary} onChange={handleChange} />
 
       <button onClick={handleSubmit} className="sub-btn">

@@ -40,7 +40,8 @@ button {
 }
 
 button:hover {
-  background: #0d47a1;
+  background: #0473ea;
+  color: #29b292;
 }
 
 /* Mobile */

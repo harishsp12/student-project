@@ -37,7 +37,7 @@
   content: "";
   width: 40px;
   height: 2px;
-  background: #9c29b2;
+  background: #0473ea;
   position: absolute;
   left: 0;
   bottom: -8px;
@@ -63,7 +63,7 @@
 }
 
 .footer-box ul li:hover {
-  color: #9c29b2;
+  color: #0473ea;
 }
 
 /* ===== SOCIAL ===== */
@@ -86,7 +86,7 @@
 }
 
 .social-icons a:nth-child(2) {
-  background: #c13584;
+  background: #0473ea;
 }
 
 .social-icons a:hover {
@@ -150,7 +150,7 @@
 }
 
 .contact-item:hover{
-    color: #9c29b2;
+    color: #0473ea;
     cursor: pointer;
 }
 
@@ -161,3 +161,7 @@
 .contact-list{
     text-decoration: none;
 }
+
+/* .back{
+  display: inline;
+} */

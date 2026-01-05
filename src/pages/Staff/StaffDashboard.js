@@ -1,21 +1,29 @@
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate,useLocation, Link } from "react-router-dom";
 import "../../styles/dashboard.css";
+import '../../styles/management.css'
 
 export default function StaffDashboard(){
   const nav = useNavigate();
   const { staffId } = useLocation().state;
 
   return (
-    <div className="dashboard">
+    <>
+      <div className="container">
+      <div className="admin-container">
       <h2>Staff Dashboard</h2>
+      <div className="back-wrapper">
+  <Link to="/" className="back">Home</Link>
+</div>
       <div className="box-wrap">
-        <div className="box" onClick={()=>nav("/staff/students",{state:{staffId}})}>
+        <button className="manage" onClick={()=>nav("/staff/students",{state:{staffId}})} >
           Student Management
-        </div>
-        <div className="box" onClick={()=>nav("/staff/profile",{state:{staffId}})}>
+        </button>
+        <button className="manage" onClick={()=>nav("/staff/profile",{state:{staffId}})}>
           Staff Profile
-        </div>
+        </button>
       </div>
     </div>
+    </div>
+    </>
   );
 }

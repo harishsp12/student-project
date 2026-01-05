@@ -1,4 +1,5 @@
-import React from "react";
+import { Link } from "react-router-dom";
+
 import "./Footer.css";
 
 function Footer() {
@@ -11,7 +12,7 @@ function Footer() {
           <div className="footer-box">
             <h3>About us</h3>
             <p>
-              Kridashala International is an educational establishment
+              Champions International is an educational establishment
               situated in Perumbakkam, Chennai. It serves as a play school,
               day care, and activity center, offering a range of services
               for children.
@@ -28,6 +29,7 @@ function Footer() {
             <h3>Quick Links</h3>
             <ul>
               <a href="#" className="contact-list"><li> Home</li></a>
+              
               <a href="#" className="contact-list"><li> About us</li></a>
               <a href="#" className="contact-list"><li> Facilities</li></a>
               <a href="#" className="contact-list"><li> Admissions</li></a>
@@ -58,10 +60,6 @@ function Footer() {
               <span>+91 95669 67669</span>
             </div>
 
-            <div className="contact-item">
-              <i className="fas fa-phone contact-icon"></i>
-              <span>+91 93444 76647</span>
-            </div>
 
             <div className="contact-item">
               <i className="fas fa-envelope contact-icon"></i>
@@ -71,9 +69,9 @@ function Footer() {
             <div className="contact-item contact-icon">
               <i className="fas fa-map-marker-alt"></i>
               <span>
-                Block-10, Villa-4, Bollineni Hillside Road,
-                Nookampalayam, Arasankalani,
-                Perumbakkam, Chennai - 600119
+                The Champions International school,
+                Othakadai,
+                Madurai - 625007
               </span>
             </div>
           </div>
@@ -83,7 +81,7 @@ function Footer() {
         {/* COPYRIGHT */}
         <div className="footer-bottom">
           <p>
-            Copyright © 2025 Vinoth. All Rights Reserved.
+            Copyright © 2025 Champions. All Rights Reserved.
             Developed by Harish.
           </p>
         </div>

@@ -1,11 +1,20 @@
 /* =========================
+   CAPITALIZE FIRST LETTER
+========================= */
+export const capitalizeFirst = (value) => {
+  if (!value) return "";
+  return value.charAt(0).toUpperCase() + value.slice(1);
+};
+
+/* =========================
    EMAIL VALIDATION
-   only @gmail.com allowed
+   only @gmail.com
 ========================= */
 export const validateEmail = (email) => {
   if (!email) return false;
-  const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-  return regex.test(email);
+  return /^[a-z0-9._%+-]+@gmail\.com$/.test(
+    email.trim().toLowerCase()
+  );
 };
 
 /* =========================
@@ -14,8 +23,7 @@ export const validateEmail = (email) => {
 ========================= */
 export const validatePhone = (phone) => {
   if (!phone) return false;
-  const regex = /^[0-9]{10}$/;
-  return regex.test(phone);
+  return /^[0-9]{10}$/.test(phone);
 };
 
 /* =========================
@@ -24,12 +32,11 @@ export const validatePhone = (phone) => {
 ========================= */
 export const validateAadhar = (aadhar) => {
   if (!aadhar) return false;
-  const regex = /^[0-9]{12}$/;
-  return regex.test(aadhar);
+  return /^[0-9]{12}$/.test(aadhar);
 };
 
 /* =========================
-   EMPTY FIELD VALIDATION
+   EMPTY FIELD CHECK
 ========================= */
 export const validateEmptyFields = (data) => {
   for (let key in data) {
@@ -38,7 +45,7 @@ export const validateEmptyFields = (data) => {
       data[key] === null ||
       data[key] === undefined
     ) {
-      return key; // return empty field name
+      return key;
     }
   }
   return null;
@@ -46,21 +53,16 @@ export const validateEmptyFields = (data) => {
 
 /* =========================
    DOB → PASSWORD
-   dd-mm-yyyy format
+   dd-mm-yyyy
 ========================= */
 export const dobToPassword = (dob) => {
   if (!dob) return "";
   const d = new Date(dob);
+  if (isNaN(d.getTime())) return "";
+
   const day = String(d.getDate()).padStart(2, "0");
   const month = String(d.getMonth() + 1).padStart(2, "0");
   const year = d.getFullYear();
-  return `${day}-${month}-${year}`;
-};
 
-/* =========================
-   PASSWORD CHECK (LOGIN)
-========================= */
-export const validatePassword = (password) => {
-  if (!password) return false;
-  return password.length >= 4;
+  return `${day}-${month}-${year}`;
 };

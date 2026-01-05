@@ -2,15 +2,161 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
+
+/* ================= NAV 1 ================= */
+/* ===== TOP NAV BAR ===== */
+.nav-container {
+  width: 100%;
+  background-color: #0473ea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+/* ===== LEFT & CENTER ITEMS ===== */
+.time-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.time-box i {
+  font-size: 16px;
+}
+
+/* text */
+.time,
+.con1 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.con1:hover{
+  color: #29b292;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+/* ===== CONTACT GROUP ===== */
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.social-icon {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.social-color {
+  color: #fff;
+  font-size: 16px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-color:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+/* ===== DIVIDER LOOK (LIKE IMAGE) ===== */
+.contact .time-box:not(:last-child)::after {
+  
+  margin-left: 15px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 10px 20px;
+  }
+
+  .time,
+  .con1 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    display: none;
+    
+  }
+
+  .contact {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact .time-box::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .time,
+  .con1 {
+    font-size: 13px;
+  }
+
+  .social-icon {
+    margin-top: 5px;
+  }
+}
+
+/* ========================= nav 2 ====================== */
+
 .contain-box {
-  height: 100px;
-  background-color: beige;
+  
+  height: 170px;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-around;
   position: relative;
+}
+
+.logo-img {
+  height: 100px;
+  width: 100px;
+}
+
+.enquire{
+  margin-left: 5px;
+  margin-top: 10px;
+  background-color: #0473ea;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 40px;
+  font-weight: 500;
+}
+
+.enquire-modal{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.enquire:hover{
+  background-color: #29b292;
+  transition: 0.5s ease;
+  /* color: #0473ea !important; */
+  cursor: pointer;
+  font-style: none;
 }
 
 .title-name {
@@ -23,7 +169,7 @@
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 25px;
+  
 }
 
 .nav-menu li {
@@ -32,14 +178,17 @@
 
 .li-color {
   text-decoration: none;
-  color: black;
-  padding: 10px;
+  font-weight: 500;
+  color: #0473ea;
+  padding: 15px;
   display: block;
+  border-radius: 20px;
 }
 
 .li-color:hover{
-    background-color: #9c29b2;
-    color: white;
+    background-color: #1a73e8;
+    color: #29b292;
+    transition: 0.5s ease;
 }
 
 /* ================= DROPDOWN (UNCHANGED) ================= */
@@ -57,4 +206,6 @@
 
 .dropdown:hover .dropdown-menu {
   display: block;
+  /* background-color: #fff; */
 }
+

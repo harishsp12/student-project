@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 
 // // import 'bootstrap/dist/css/bootstrap.min.css';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -33,6 +33,8 @@
 // }
 
 // export default App;
+
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
@@ -54,6 +56,7 @@ import StaffStudentManagement from "./pages/Admin/StudentManagement";
 // 🎓 Student Pages
 import StudentProfile from "./pages/Student/StudentProfile";
 import Home from './pages/Home';
+import EnquiryModal from "./components/EnquiryModal";
 
 export default function App() {
   return (
@@ -83,6 +86,8 @@ export default function App() {
 
           {/* ===== STUDENT ROUTES ===== */}
           <Route path="/student-profile" element={<StudentProfile />} />
+
+          <Route path="/enquire-modal" element={<EnquiryModal/>}/>
 
         </Routes>
       </BrowserRouter>

@@ -1,7 +1,8 @@
 *{
     margin: 0%;
     padding: 0%;
-    box-sizing: border-box
+    box-sizing: border-box;
+    
 }
 
 
@@ -11,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, rgb(187, 114, 225), rgb(81, 81, 215));
+  /* background: linear-gradient(to right, rgb(187, 114, 225), rgb(81, 81, 215)); */
 }
 
 .admin-container{
@@ -22,7 +23,8 @@
   border: 1px solid black;
   width: 400px;
   height: 300px;
-  background: linear-gradient(rgb(91, 194, 82), rgb(183, 65, 171));
+  /* background: linear-gradient(rgb(91, 194, 82), rgb(183, 65, 171)); */
+  background-color: white;
 
 }
 
@@ -32,16 +34,18 @@
 }
 
 .manage{
-  display: inline;
+  display: flex;
+  justify-content: center;
   width: 200px;
   padding: 20px;
   font-size: 1rem;
   font-weight: 700;
+  background-color: #0473ea;
 }
 
 .manage:hover{
-  background-color: green;
-  color: red;
+  background-color: #0473ea;
+  color: #29b292;
 }
 
 /* ========================= admin dashboard end ========================== */

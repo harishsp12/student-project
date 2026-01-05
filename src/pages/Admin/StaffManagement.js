@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../../api/api";
 import StaffForm from "../../components/StaffForm";
 import StaffTable from "../../components/StaffTable";
 import toast from "react-hot-toast";
+import '../../styles/management.css'
 
 
 export default function StaffManagement() {
   const [staffs, setStaffs] = useState([]);
   const [editStaff, setEditStaff] = useState(null);
+
+  
 
   // ✅ SAFE useEffect
   useEffect(() => {
@@ -22,9 +26,8 @@ export default function StaffManagement() {
 
     loadStaff();
 
-    return () => {
-      // cleanup function (required format)
-    };
+    // cleanup optional
+    return () => {};
   }, []);
 
   const handleSubmit = async (staff) => {
@@ -63,10 +66,16 @@ export default function StaffManagement() {
 
   return (
     <div>
-      <h2 style={{ textAlign: "center" }}>
-  Staff Management
-</h2>
+      {/* <Header /> */}
+      <h2 style={{ textAlign: "center", color:"black" }}>
+        Staff Management
+      </h2>
+      <div className="back-wrapper">
+  <Link to="/" className="back">Home</Link>
+</div>
+      
 
+      
 
       <StaffForm
         onSubmit={handleSubmit}
@@ -76,7 +85,7 @@ export default function StaffManagement() {
       <StaffTable
         staffs={staffs}
         onEdit={handleEdit}
-        onDelete={handleDelete} 
+        onDelete={handleDelete}
       />
     </div>
   );

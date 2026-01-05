@@ -5,104 +5,105 @@ import play from './img/play-ground.jpeg'
 import nursery from './img/nursury.jpg'
 import junior from './img/junior.jpg'
 import senior from './img/senior.jpg'
+import banner from './img/banner-1.jpg'
+import banner4 from './img/banner-4.jpg'
 import transport from './img/transport.png'
 import learn from './img/learn.png'
+import banner2 from './img/banner-3.jpg'
+import banner1 from './img/banner-2.jpg'
 import music from './img/music.png'
 import teacher from './img/teacher.png'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
-
-
-
 function Home() {
 
-  
+  const [current, setCurrent] = useState(0);
 
-  
+  const images = [banner4, banner, banner2, banner1];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 5000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
 
   return (
     <>
       <div className='body'>
 
-        {/* ===================== NAV 1 ===================== */}
-        <nav className='nav-container'>
-          <div className='time-box'>
-            <i className="fa-regular fa-clock"></i>
-            <p className='time'>9:30 am - 5:30 pm Monday - Friday</p>
-          </div>
-
-          <div className='contact'>
-            <div className='time-box'>
-              <i className="fa-solid fa-phone"></i>
-              <p className='con1'>+91 95669 67669 |</p>
-            </div>
-
-            <div className='time-box'>
-              <i className="fa-solid fa-phone"></i>
-              <p className='con1'>+91 93444 76647 |</p>
-            </div>
-
-            <div className='time-box'>
-              <i className="fa-solid fa-envelope"></i>
-              <p className='con1'>vinoth@gmail.com</p>
-            </div>
-          </div>
-
-          <div className="social-icon">
-            <a href="#" className="social-color"><i className="fa-brands fa-facebook-f"></i></a>
-            <a href="#" className="social-color"><i className="fa-brands fa-instagram"></i></a>
-          </div>
-        </nav>
-
-        {/* ===================== NAV 2 ===================== */}
+       
         <Header />
 
         {/* ===================== BANNER ===================== */}
-        <div className="home">
-          <img
-            src="https://www.kridashala.com/assets/img/bg/hero-1-6.jpg"
-            alt="banner"
-            className="home-image"
-          />
-        </div>
+       <div className="home">
+
+  {/* Slider Images */}
+  {images.map((img, index) => (
+    <img
+      key={index}
+      src={img}
+      alt="banner"
+      className={`home-image ${index === current ? "active" : ""}`}
+    />
+  ))}
+
+  {/* ===== TEXT OVERLAY ===== */}
+  <div className="home-overlay">
+    <p className="home-sub">Play • Learn • Grow • Fly</p>
+
+    <h1 className="home-title">
+      Flying<br />
+      <span>High on the wings of</span> <br />
+      knowledge
+    </h1>
+
+    <button className="home-btn">Enquire</button>
+  </div>
+
+</div>
+
 
         {/* ===================== about start ========================== */}
-         <div className='container'>
-             <div className='contain'> 
-                <div className='left-contain'> 
-                    <span className='about-title'>About Vinoth</span> 
-                       
+          <section className="about-container">
+      <div className="about-left">
+        <p className="about-sub">About Champions</p>
 
-        <h1 class="about-titles">
-            <span className='special'>Special Care For Your
-            Children</span>
-        </h1>
+        <h2 className="about-title">
+          Special Care For Your <br /> Children
+        </h2>
 
-        <p class="about-text">
-            Vinoth International is an educational establishment situated in
-            Perumbakkam, Chennai. It serves as a play school, day care, and activity
-            center, offering a range of services for children. The facility boasts
-            well-appointed classrooms, a dedicated wall climbing area, a dance
-            floor, and an expansive activity area.
+        <p className="about-text">
+          Champions International is an educational establishment situated in
+          Perumbakkam, Chennai. It serves as a play school, day care, and
+          activity center, offering a range of services for children.
         </p>
 
-        <p class="about-text">
-            At Vinoth, we believe that every child deserves to embark on their
-            educational journey by acquiring foundational knowledge through play.
-            Our goal is to nurture and guide each child towards becoming shining
-            STARS.
+        <p className="about-text">
+          The facility boasts well-appointed classrooms, a dedicated wall
+          climbing area, a dance floor, and an expansive activity area.
         </p>
-        <a href="#" class="learn-contain"><span class="learn" >Learn More</span> </a>
-        </div> 
-        <div className='right-contain'> 
-         <div class="img-order">
-        <img src={child} alt="child1" class="img-size" />
+
+        <p className="about-text">
+          At Champions, we believe that every child deserves to embark on their
+          educational journey by acquiring foundational knowledge through play.
+          Our goal is to nurture and guide each child towards becoming shining
+          STARS.
+        </p>
+
+        <button className="about-btn">Learn More</button>
       </div>
-        </div>
-                </div> 
-            </div> 
 
+      <div className="about-right">
+        <div className="img-shape">
+          <img src={child} alt="child" />
+        </div>
+
+      </div>
+    </section>
 
             {/* ========================= classes =========================== */}
 
@@ -119,7 +120,7 @@ function Home() {
             <div className='img-contain'>
                 <div className='card sub-card '>
                 <div className='img-container-size'>
-                <img src={play} alt="play" class="img-size1" />
+                <img src={play} alt="play" className="img-size1" />
                 </div>
                 <div>
                     <p className='head'>Play-Ground</p>
@@ -143,7 +144,7 @@ function Home() {
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Capasity:</p>
+                        <p>Capacity:</p>
                         </div>
                         <div>
                         <span className='list'>1 : 15 Kids</span>
@@ -159,7 +160,7 @@ function Home() {
             <div className='img-contain'>
                 <div className='card sub-card'>
                 <div className='img-container-size'>
-                <img src={nursery} alt="nursery" class="img-size1" />
+                <img src={nursery} alt="nursery" className="img-size1" />
                 </div>
                 <div>
                     <p className='head'>Nursery</p>
@@ -183,7 +184,7 @@ function Home() {
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Capasity:</p>
+                        <p>Capacity:</p>
                         </div>
                         <div>
                         <span className='list'>1 : 15 Kids</span>
@@ -199,7 +200,7 @@ function Home() {
             <div className='img-contain'>
                 <div className='card sub-card'>
                 <div className='img-container-size'>
-                <img src={junior} alt="junior" class="img-size1" />
+                <img src={junior} alt="junior" className="img-size1" />
                 </div>
                 <div>
                     <p className='head'>Junior</p>
@@ -223,7 +224,7 @@ function Home() {
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Capasity:</p>
+                        <p>Capacity:</p>
                         </div>
                         <div>
                         <span className='list'>1 : 15 Kids</span>
@@ -240,10 +241,10 @@ function Home() {
             <div className='img-contain'>
                 <div className='card sub-card'>
                 <div className='img-container-size'>
-                <img src={senior} alt="senior" class="img-size1" />
+                <img src={senior} alt="senior" className="img-size1" />
                 </div>
                 <div>
-                    <p className='head'>Senoir</p>
+                    <p className='head'>Senior</p>
                 </div>
                 <div className='info'>
                     <div className='info1'>
@@ -264,7 +265,7 @@ function Home() {
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Capasity:</p>
+                        <p>Capacity:</p>
                         </div>
                         <div>
                         <span className='list'>1 : 15 Kids</span>
@@ -279,7 +280,7 @@ function Home() {
         </div>
 
       </div>
-
+{/* ======================== service ====================== */}
       <div className='ser-contain'>
         <div></div>
             <div>
@@ -293,7 +294,7 @@ function Home() {
             <div className='service-contain'>
                 <div className='card ser-card'>
                 <div className='service-container-size'>
-                <a href='#'><img src={transport} alt="play" class="img-size2" /></a>
+                <a href='#'><img src={transport} alt="play" className="img-size2" /></a>
                 </div>
                 <div>
                     <p className='service-list'>Transport</p>
@@ -305,7 +306,7 @@ function Home() {
             <div className='service-contain1'>
                 <div className='card ser-card'>
                 <div className='service-container-size'>
-                <a href='#'><img src={learn} alt="learn" class="img-size2" /></a>
+                <a href='#'><img src={learn} alt="learn" className="img-size2" /></a>
                 </div>
                 <div>
                     <p className='service-list'>Learn & Play</p>
@@ -317,10 +318,10 @@ function Home() {
             <div className='service-contain2'>
                 <div className='card ser-card'>
                 <div className='service-container-size'>
-                <a href='#'><img src={music} alt="music" class="img-size2" /></a>
+                <a href='#'><img src={music} alt="music" className="img-size2" /></a>
                 </div>
                 <div>
-                    <p className='service-list'>Music</p>
+                    <p className='service-list'>Music Training</p>
                 </div>
                
                 </div>
@@ -329,10 +330,10 @@ function Home() {
            <div className='service-contain3'>
                 <div className='card ser-card'>
                 <div className='service-container-size'>
-                <a href='#'><img src={teacher} alt="teacher" class="img-size2" /></a>
+                <a href='#'><img src={teacher} alt="teacher" className="img-size2" /></a>
                 </div>
                 <div>
-                    <p className='service-list'>Teacher</p>
+                    <p className='service-list'>Best Teacher</p>
                 </div>
                
                 </div>

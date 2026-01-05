@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import api from "../../api/api";
 import StudentForm from "../../components/StudentForm";
 import StudentTable from "../../components/StudentTable";
+import '../../styles/management.css'
 import toast from "react-hot-toast";
 
 export default function StudentManagement() {
@@ -67,6 +69,9 @@ export default function StudentManagement() {
   return (
     <div>
       <h2 style={{ textAlign: "center" }}>Student Management</h2>
+      <div className="back-wrapper">
+  <Link to="/" className="back">Home</Link>
+</div>
 
       <StudentForm
         onSubmit={handleSubmit}

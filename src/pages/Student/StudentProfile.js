@@ -1,52 +1,110 @@
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import api from "../../api/api";
+import toast from "react-hot-toast";
 import "../../styles/profile.css";
+import '../../styles/management.css'
 
 export default function StudentProfile() {
+
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // 🔑 get logged-in student id
   const studentId = location.state?.studentId;
 
-  /*
-    Backend connect panna place:
-    axios.get(`/student/${studentId}`)
-    .then(res => setStudent(res.data))
-  */
+  const [student, setStudent] = useState(null);
 
-  // TEMP dummy data (backend connect panna replace pannunga)
-  const student = {
-    id: studentId,
-    studentName: "Ravi Kumar",
-    dob: "2008-06-15",
-    gender: "Male",
-    studentClass: "Senior KG",
-    email: "ravi.kumar@gmail.com",
-    phoneNo: "9876543210",
-    address: "Chennai",
-    aadharNo: "123412341234",
-    fatherName: "Kumar",
-    motherName: "Lakshmi"
+  useEffect(() => {
+    if (!studentId) {
+      toast.error("Student ID not found. Please login again.");
+      navigate("/student-login");
+      return;
+    }
+
+    loadStudent();
+  }, [studentId]);
+
+  const loadStudent = async () => {
+    try {
+      const res = await api.get(`/student/get/${studentId}`);
+      setStudent(res.data);
+    } catch (err) {
+      toast.error("Failed to load student profile");
+    }
   };
+
+  if (!student) {
+    return <h3 style={{ textAlign: "center" }}>Loading...</h3>;
+  }
 
   return (
     <div className="profile-container">
       <h2>Student Profile</h2>
+      <div className="back-wrapper">
+  <Link to="/" className="back">Home</Link>
+</div>
 
       <div className="profile-card">
-        <p><b>ID:</b> {student.id}</p>
-        <p><b>Name:</b> {student.studentName}</p>
-        <p><b>DOB:</b> {student.dob}</p>
-        <p><b>Gender:</b> {student.gender}</p>
-        <p><b>Class:</b> {student.studentClass}</p>
-        <p><b>Email:</b> {student.email}</p>
-        <p><b>Phone:</b> {student.phoneNo}</p>
-        <p><b>Address:</b> {student.address}</p>
-        <p><b>Aadhar:</b> {student.aadharNo}</p>
-        <p><b>Father Name:</b> {student.fatherName}</p>
-        <p><b>Mother Name:</b> {student.motherName}</p>
-      </div>
 
-      {/* <p className="note">
-        * This page is view only. Editing is not allowed.
-      </p> */}
+        <div className="profile-row">
+          <span>ID</span>
+          <span>{student.id}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>Name</span>
+          <span>{student.studentName}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>DOB</span>
+          <span>{student.dob}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>Gender</span>
+          <span>{student.gender}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>Class</span>
+          <span>{student.studentClass}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>Email</span>
+          <span>{student.email}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>Phone</span>
+          <span>{student.phoneNo}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>Address</span>
+          <span>{student.address}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>Aadhar</span>
+          <span>{student.aadharNo}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>Father Name</span>
+          <span>{student.fatherName}</span>
+        </div>
+
+        <div className="profile-row">
+          <span>Mother Name</span>
+          <span>{student.motherName}</span>
+        </div>
+
+        {/* 🚫 Password NOT shown intentionally */}
+
+      </div>
     </div>
   );
 }

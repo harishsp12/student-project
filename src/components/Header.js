@@ -1,15 +1,61 @@
-import React, {useState } from 'react'
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Header.css'
+import Champ from '../pages/img/champ.png'
+import EnquiryModal from "./EnquiryModal";
 
 function Header() {
 
     const [menuOpen, setMenuOpen] = useState(false);
+  const [showEnquiry, setShowEnquiry] = useState(false);
+
+  // 🔥 AUTO OPEN WHEN HOME LOADS
+  useEffect(() => {
+    setShowEnquiry(true);
+  }, []);
 
   return (
+
+
+    <>
+
+     {/* ===================== NAV 1 ===================== */}
+            <nav className='nav-container'>
+              <div className='time-box'>
+                <i className="fa-regular fa-clock"></i>
+                <p className='time'>9:30 am - 5:30 pm Monday - Friday</p>
+              </div>
+    
+              <div className='contact'>
+                <div className='time-box'>
+                  <i className="fa-solid fa-phone"></i>
+                  <p className='con1'>+91 95669 67669</p>
+                </div>
+    
+                <div className='time-box'>
+                  
+                  <p className='con1'>|</p>
+                </div>            
+    
+                <div className='time-box'>
+                  <i className="fa-solid fa-envelope"></i>
+                  <p className='con1'>vinoth@gmail.com</p>
+                </div>
+              </div>
+    
+              <div className="social-icon ">
+                <a href="#" className="social-color"><i className="fa-brands fa-facebook-f con1"></i></a>
+                <a href="#" className="social-color"><i className="fa-brands fa-instagram con1"></i></a>
+              </div>
+            </nav>
+    
+            {/* ===================== NAV 2 ===================== */}
+
     <nav className='contain-box'>
           <div className='title'>
-            <span className='title-name'>Vinoth</span>
+           <img src={Champ} className='logo-img' alt="champion" />
+           
+           <p  className="enquire"><Link to="/" className='enquire-modal'>Enquire</Link></p>     {/*  enquire-modal */}
           </div>
 
           {/* ☰ Menu Icon */}
@@ -71,6 +117,11 @@ function Header() {
             </ul>
           </div>
         </nav>
+
+        {showEnquiry && (
+        <EnquiryModal onClose={() => setShowEnquiry(false)} />
+      )}
+        </>
   )
 }
 
