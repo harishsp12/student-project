@@ -118,7 +118,7 @@ function Home() {
 
             <div className='img-container'>
             <div className='img-contain'>
-                <div className='card sub-card '>
+                <div className='card sub-card card-col1'>
                 <div className='img-container-size'>
                 <img src={play} alt="play" className="img-size1" />
                 </div>
@@ -128,15 +128,15 @@ function Home() {
                 <div className='info'>
                     <div className='info1'>
                         <div>
-                        <p>Age:</p>
+                        <p> Years</p>
                         </div>
                         <div>
-                        <span className='list'>1.5 - 2.5 Years</span>
+                        <span className='list'>1.5 - 2.5</span>
                         </div>
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Time:</p>
+                        <p>Time</p>
                         </div>
                         <div>
                         <span className='list'>9:30 - 11:30 am</span>
@@ -144,10 +144,10 @@ function Home() {
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Capacity:</p>
+                        <p> Kids</p>
                         </div>
                         <div>
-                        <span className='list'>1 : 15 Kids</span>
+                        <span className='list'>1 : 15</span>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@ function Home() {
             </div>
 
             <div className='img-contain'>
-                <div className='card sub-card'>
+                <div className='card sub-card card-col2'>
                 <div className='img-container-size'>
                 <img src={nursery} alt="nursery" className="img-size1" />
                 </div>
@@ -168,15 +168,15 @@ function Home() {
                 <div className='info'>
                     <div className='info1'>
                         <div>
-                        <p>Age:</p>
+                        <p>Years</p>
                         </div>
                         <div>
-                        <span className='list'>2.5 - 3.5 Years</span>
+                        <span className='list'>2.5 - 3.5 </span>
                         </div>
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Time:</p>
+                        <p>Time</p>
                         </div>
                         <div>
                         <span className='list'>9:00 - 11:30 am</span>
@@ -184,10 +184,10 @@ function Home() {
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Capacity:</p>
+                        <p> Kids</p>
                         </div>
                         <div>
-                        <span className='list'>1 : 15 Kids</span>
+                        <span className='list'>1 : 15 </span>
                         </div>
                     </div>
                 </div>
@@ -198,7 +198,7 @@ function Home() {
             </div>
 
             <div className='img-contain'>
-                <div className='card sub-card'>
+                <div className='card sub-card card-col3'>
                 <div className='img-container-size'>
                 <img src={junior} alt="junior" className="img-size1" />
                 </div>
@@ -208,15 +208,15 @@ function Home() {
                 <div className='info'>
                     <div className='info1'>
                         <div>
-                        <p>Age:</p>
+                        <p>Years</p>
                         </div>
                         <div>
-                        <span className='list'>3.5 - 4.5 Years</span>
+                        <span className='list'>3.5 - 4.5 </span>
                         </div>
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Time:</p>
+                        <p>Time</p>
                         </div>
                         <div>
                         <span className='list'>9:00 - 1:00 am</span>
@@ -224,10 +224,10 @@ function Home() {
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Capacity:</p>
+                        <p> Kids</p>
                         </div>
                         <div>
-                        <span className='list'>1 : 15 Kids</span>
+                        <span className='list'>1 : 15 </span>
                         </div>
                     </div>
                 </div>
@@ -239,7 +239,7 @@ function Home() {
             </div>
 
             <div className='img-contain'>
-                <div className='card sub-card'>
+                <div className='card sub-card card-col4'>
                 <div className='img-container-size'>
                 <img src={senior} alt="senior" className="img-size1" />
                 </div>
@@ -249,15 +249,15 @@ function Home() {
                 <div className='info'>
                     <div className='info1'>
                         <div>
-                        <p>Age:</p>
+                        <p>Years</p>
                         </div>
                         <div>
-                        <span className='list'>4.5 - 5.5 Years</span>
+                        <span className='list'>4.5 - 5.5</span>
                         </div>
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Time:</p>
+                        <p>Time</p>
                         </div>
                         <div>
                         <span className='list'>9:00 - 1:00 am</span>
@@ -265,10 +265,10 @@ function Home() {
                     </div>
                     <div className='info1'>
                         <div>
-                        <p>Capacity:</p>
+                        <p> Kids</p>
                         </div>
                         <div>
-                        <span className='list'>1 : 15 Kids</span>
+                        <span className='list'>1 : 15</span>
                         </div>
                     </div>
                 </div>

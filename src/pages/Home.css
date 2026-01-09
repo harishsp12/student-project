@@ -314,7 +314,7 @@
 
 .img-container {
   padding-top: 30px;
-  height: 1200px;
+  height: 100vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -324,8 +324,7 @@
 
 /* ===== CARD ===== */
 .sub-card {
-  width: 320px;
-  background: #c4fff1;
+  width: 280px;
   border-radius: 40px;
   padding: 20px;
   text-align: center;
@@ -349,20 +348,19 @@
 .head {
   font-size: 24px;
   font-weight: 700;
-  color: #0473ea;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
 .info {
-  display: flex;
-  justify-content: space-between;
+  display: block;
+  
   margin-bottom: 25px;
 }
 
 .info1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
+ 
   gap: 6px;
 }
 
@@ -374,11 +372,27 @@
 .list {
   font-size: 15px;
   font-weight: 600;
-  color: #0473ea;
+  color: #ffffff;
+}
+
+.card-col1{
+  background-color: #db3533;
+}
+
+.card-col2{
+  background-color: #f5cb0a;
+}
+
+.card-col3{
+  background-color: #49b146;
+}
+
+.card-col4{
+  background-color: #4280b0;
 }
 
 .info1:not(:last-child) {
-  border-right: 1px solid #0473ea;
+  border-bottom: 2px solid #fdffff;
   padding-right: 15px;
 }
 
@@ -455,8 +469,8 @@
 
 .read{
     display: inline;
-    color:#0473ea;
-    border: 1px solid #0473ea;
+    color:#ffffff;
+    border: 2px solid #ffffff;
     padding: 8px 20px;
     border-radius: 40px;
     transition: 0.5s ease;
@@ -464,9 +478,82 @@
 
 .read:hover{
     color: #29b292;
-    background-color: #0473ea;
+    background-color: #fdfeff;
     cursor: pointer; 
 }
+
+/* ================= RESPONSIVE FIX (GLOBAL) ================= */
+
+/* FIX height issue */
+@media (max-width: 1200px) {
+  .img-container {
+    height: auto;          /* 🔥 override 100vh */
+  }
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 992px) {
+
+  .sub-title {
+    font-size: 22px;
+    padding-top: 100px;
+    text-align: center;
+  }
+
+  .sec-title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .img-container {
+    justify-content: center;
+    gap: 25px;
+    height: auto;
+  }
+
+  .sub-card {
+    width: 45%;            /* 2 cards per row */
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 576px) {
+
+  .sub-title {
+    font-size: 20px;
+    padding-top: 70px;
+    margin-bottom: 20px;
+  }
+
+  .sec-title {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  .img-container {
+    padding-top: 20px;
+    height: auto;
+  }
+
+  .sub-card {
+    width: 100%;           /* 1 card per row */
+  }
+
+  .head {
+    font-size: 20px;
+  }
+
+  .info1 p,
+  .list {
+    font-size: 14px;
+  }
+
+  .read {
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+}
+
 
 /* =========================== services ========================== */
 
