@@ -9,12 +9,12 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showEnquiry, setShowEnquiry] = useState(false);
 
-  // 🔥 AUTO OPEN WHEN HOME LOADS
+  
   useEffect(() => {
     setShowEnquiry(true);
   }, []);
 
-  // 🔥 PAGE SCROLL AAGUMBOTHU MENU AUTO CLOSE
+  
   useEffect(() => {
     const handleScroll = () => {
       if (menuOpen) {
