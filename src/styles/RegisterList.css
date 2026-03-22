@@ -1,0 +1,33 @@
+.table-container{
+padding:30px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+th{
+background:#0473ea;
+color:white;
+}
+
+.delete-btn{
+background:red;
+color:white;
+border:none;
+padding:6px 12px;
+border-radius:4px;
+cursor:pointer;
+}
+
+.delete-btn:hover{
+background:darkred;
+}

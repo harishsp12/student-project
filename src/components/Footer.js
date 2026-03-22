@@ -81,7 +81,7 @@ function Footer() {
         {/* COPYRIGHT */}
         <div className="footer-bottom">
           <p>
-            Copyright © 2025 Champions. All Rights Reserved.
+            Copyright © 2026 Champions. All Rights Reserved.
             Developed by Harish.
           </p>
         </div>

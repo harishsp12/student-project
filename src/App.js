@@ -1,8 +1,4 @@
-
 import './App.css';
-
-
-
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -16,6 +12,7 @@ import StudentLogin from "./pages/Login/StudentLogin";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import StudentManagement from "./pages/Admin/StudentManagement";
 import StaffManagement from "./pages/Admin/StaffManagement";
+import RegisterList from "./pages/Admin/RegisterList"; // ⭐ NEW
 
 // 👨‍🏫 Staff Pages
 import StaffDashboard from "./pages/Staff/StaffDashboard";
@@ -24,47 +21,59 @@ import StaffStudentManagement from "./pages/Admin/StudentManagement";
 
 // 🎓 Student Pages
 import StudentProfile from "./pages/Student/StudentProfile";
+
+// 🌐 Website Pages
 import Home from './pages/Home';
 import EnquiryModal from "./components/EnquiryModal";
 
-// register page
-import Register from "./pages/Register";
+// 📝 Register Page
+import Register from "./pages/Register/Register";
 
 export default function App() {
+
   return (
+
     <>
-      {/* 🔔 Toast Notification */}
+
+      {/* Toast Message */}
       <Toaster position="top-right" />
 
       <BrowserRouter>
+
         <Routes>
 
-          {/* ===== LOGIN ROUTES ===== */}
-          {/* <Route path="/" element={<AdminLogin />} /> */}
-          <Route path='/' element={<Home/>}/>
+          {/* ===== HOME ===== */}
+          <Route path="/" element={<Home />} />
+
+          {/* ===== LOGIN ===== */}
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/student-login" element={<StudentLogin />} />
 
-          {/* ===== ADMIN ROUTES ===== */}
+          {/* ===== ADMIN ===== */}
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin/student-management" element={<StudentManagement />} />
           <Route path="/admin/staff-management" element={<StaffManagement />} />
+          <Route path="/admin/register-list" element={<RegisterList />} /> {/* ⭐ */}
 
-          {/* ===== STAFF ROUTES ===== */}
+          {/* ===== STAFF ===== */}
           <Route path="/staff-dashboard" element={<StaffDashboard />} />
           <Route path="/staff/profile" element={<StaffProfile />} />
           <Route path="/staff/students" element={<StaffStudentManagement />} />
 
-          {/* ===== STUDENT ROUTES ===== */}
+          {/* ===== STUDENT ===== */}
           <Route path="/student-profile" element={<StudentProfile />} />
-          <Route path="/enquire-modal" element={<EnquiryModal/>}/>
 
-          {/* ===== Register Pages =====*/}
+          {/* ===== WEBSITE ===== */}
+          <Route path="/enquire-modal" element={<EnquiryModal />} />
           <Route path="/register" element={<Register />} />
-          
+
         </Routes>
+
       </BrowserRouter>
+
     </>
+
   );
+
 }
