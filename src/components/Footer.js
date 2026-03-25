@@ -12,15 +12,29 @@ function Footer() {
           <div className="footer-box">
             <h3>About us</h3>
             <p>
-              Champions International is an educational establishment
-              situated in Perumbakkam, Chennai. It serves as a play school,
-              day care, and activity center, offering a range of services
+              Champions International School is an educational establishment
+              situated in Othakadai, Madurai. It serves as a play school,
+              nursery,Junior KG and Senior KG, offering a range of services
               for children.
             </p>
 
             <div className="social-icons">
-              <a href="#"><i className="fab fa-facebook-f contact-icon"></i></a>
-              <a href="#"><i className="fab fa-instagram contact-icon"></i></a>
+              <a
+  href="https://www.facebook.com/share/18CBU9dGxf/"
+  className="social-color"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+<i className="fab fa-facebook-f contact-icon"></i>
+</a>
+              <a
+  href="https://www.instagram.com/cis_mdu/"
+  className="social-color"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <i className="fab fa-instagram contact-icon"></i>
+</a>
             </div>
           </div>
 
@@ -44,8 +58,8 @@ function Footer() {
           <div className="footer-box">
             <h3>Classes</h3>
             <ul>
-              <a href="#" className="contact-list"><li>Day Care</li></a>
               <a href="#" className="contact-list"><li>Play Group</li></a>
+              <a href="#" className="contact-list"><li>Nursery</li></a>
               <a href="#" className="contact-list"><li>Junior KG</li></a>
               <a href="#" className="contact-list"><li>Senior KG</li></a>
             </ul>

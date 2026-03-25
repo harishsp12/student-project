@@ -50,13 +50,28 @@ function Header() {
 
           <div className='time-box'>
             <i className="fa-solid fa-envelope"></i>
-            <p className='con1'>vinoth@gmail.com</p>
+            <p className='con1'>cismdu@zohomail.in</p>
           </div>
         </div>
 
         <div className="social-icon ">
-          <a href="#" className="social-color"><i className="fa-brands fa-facebook-f con1"></i></a>
-          <a href="#" className="social-color"><i className="fa-brands fa-instagram con1"></i></a>
+         <a
+  href="https://www.facebook.com/share/18CBU9dGxf/"
+  className="social-color"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <i className="fa-brands fa-facebook-f con1"></i>
+</a>
+         <a
+  href="https://www.instagram.com/cis_mdu/"
+  className="social-color"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <i className="fa-brands fa-instagram con1"></i>
+</a>
+         
         </div>
       </nav>
 

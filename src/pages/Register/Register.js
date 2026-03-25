@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../../api/api";
 import toast from "react-hot-toast";
 import "../../styles/Register.css";
+import { Link } from "react-router-dom";
 
 export default function Register(){
 
@@ -17,9 +18,15 @@ address:""
 });
 
 
+// ⭐ First Letter Capital Function
+const capitalizeFirstLetter = (value)=>{
+if(!value) return value;
+return value.charAt(0).toUpperCase() + value.slice(1);
+};
+
+
 // ⭐ DOB → Age Calculate
 const calculateAge = (dob)=>{
-
 const today = new Date();
 const birthDate = new Date(dob);
 
@@ -32,17 +39,27 @@ age--;
 }
 
 return age;
-
 };
 
 
-// ⭐ Input Change
+// ⭐ Handle Input Change
 const handleChange = (e)=>{
 
 const {name,value} = e.target;
 
-let updatedForm = {...formData,[name]:value};
+let updatedValue = value;
 
+// ⭐ Apply Capitalization only for name fields
+if(name === "childName" || name === "fatherName" || name === "motherName"){
+updatedValue = capitalizeFirstLetter(value);
+}
+
+let updatedForm = {
+...formData,
+[name]: updatedValue
+};
+
+// ⭐ Auto Age
 if(name === "dob"){
 updatedForm.age = calculateAge(value);
 }
@@ -52,20 +69,16 @@ setFormData(updatedForm);
 };
 
 
-// ⭐ Form Submit
+// ⭐ Submit
 const handleSubmit = async(e)=>{
-
 e.preventDefault();
 
 try{
-
-console.log("Sending Data:",formData);
 
 await api.post("/register/save", formData);
 
 toast.success("Register Success");
 
-// reset form
 setFormData({
 childName:"",
 fatherName:"",
@@ -79,11 +92,7 @@ address:""
 
 }catch(error){
 
-console.log(error);
-
-toast.error(
-error.response?.data || "Register Failed"
-);
+toast.error(error.response?.data || "Register Failed");
 
 }
 
@@ -97,11 +106,12 @@ return(
 <div className="register-card">
 
 <h2>Student Register</h2>
-
+<div className="back-wrapper">
+  <Link to="/" className="back">Home</Link>
+</div>
 <form onSubmit={handleSubmit}>
 
 <input
-type="text"
 name="childName"
 placeholder="Child Name"
 value={formData.childName}
@@ -110,7 +120,6 @@ required
 />
 
 <input
-type="text"
 name="fatherName"
 placeholder="Father Name"
 value={formData.fatherName}
@@ -119,7 +128,6 @@ required
 />
 
 <input
-type="text"
 name="motherName"
 placeholder="Mother Name"
 value={formData.motherName}
@@ -128,7 +136,6 @@ required
 />
 
 <input
-type="text"
 name="mobileNo"
 placeholder="Mobile Number"
 value={formData.mobileNo}
@@ -145,7 +152,6 @@ required
 />
 
 <input
-type="text"
 name="age"
 placeholder="Age"
 value={formData.age}
@@ -153,7 +159,6 @@ readOnly
 />
 
 <input
-type="text"
 name="aadharNo"
 placeholder="Aadhar Number"
 value={formData.aadharNo}
@@ -168,9 +173,7 @@ value={formData.address}
 onChange={handleChange}
 />
 
-<button type="submit">
-Submit
-</button>
+<button type="submit">Submit</button>
 
 </form>
 

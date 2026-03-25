@@ -81,9 +81,9 @@ function Home() {
         </h2>
 
         <p className="about-text">
-          Champions International is an educational establishment situated in
-          Perumbakkam, Chennai. It serves as a play school, day care, and
-          activity center, offering a range of services for children.
+          Champions International School is an educational establishment situated in
+          Othakadai, Madurai. It serves as a play school, nursery, junior KG and
+          Senior KG, offering a range of services for children.
         </p>
 
         <p className="about-text">
@@ -151,7 +151,7 @@ function Home() {
                         <p> Kids</p>
                         </div>
                         <div>
-                        <span className='list'>1 : 15</span>
+                        <span className='list'>1 : 25</span>
                         </div>
                     </div>
                 </div>
@@ -191,7 +191,7 @@ function Home() {
                         <p> Kids</p>
                         </div>
                         <div>
-                        <span className='list'>1 : 15 </span>
+                        <span className='list'>1 : 25 </span>
                         </div>
                     </div>
                 </div>
@@ -231,7 +231,7 @@ function Home() {
                         <p> Kids</p>
                         </div>
                         <div>
-                        <span className='list'>1 : 15 </span>
+                        <span className='list'>1 : 25 </span>
                         </div>
                     </div>
                 </div>
@@ -272,7 +272,7 @@ function Home() {
                         <p> Kids</p>
                         </div>
                         <div>
-                        <span className='list'>1 : 15</span>
+                        <span className='list'>1 : 25</span>
                         </div>
                     </div>
                 </div>
